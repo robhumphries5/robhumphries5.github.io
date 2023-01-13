@@ -21,11 +21,11 @@ Some forms also contain condition builders. For example:
 When the condition builder is present on a form it has been added like any other column on the table. The condition builder is dependent on there being another field available to define which table it will reference. This is defined on the Condition field's sys_dictionary record. In most cases, there will be a field of type Table name on the same table and the Condition field will be dependent on that. 
 
 When the condition builder has a value it is stored as an encoded query string, just like you would get from the condition builder on a list page. The value can be accessed using the usual client or server-side methods.
-```js
+{{"{% highlight javascript "}}%}
 g_form.getValue("condition_field") //in the client
 
 gr.getValue("condition_field") //on the server-side
-```
+{{ "{% endhighlight "}}%}
 ### Adding a condition builder to a UI Page
 Adding a condition builder to a UI Page is actually very simple, it is just very poorly documented.
 ServiceNow provide a Jelly tag `<g:ui_element></g:ui_element>` which is not mentioned in the Jelly Tags or Extensions to Jelly syntax docs.
