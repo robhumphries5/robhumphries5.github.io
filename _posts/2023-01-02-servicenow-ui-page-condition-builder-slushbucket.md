@@ -84,15 +84,42 @@ The `addLoadEvent()` function means that ServiceNow will wait until it has finis
 ### Getting the values of the fields
 This is probably pretty obvious now, but you can get the values of the fields in the same way.
 ```js
-	var tableUIValue = document.getElementById(table+"."+tableNameFieldName).value;
+var tableUIValue = document.getElementById(table+"."+tableNameFieldName).value;
  
-	var conditionUIValue = document.getElementById(table+"."+conditionFieldName).value;
+var conditionUIValue = document.getElementById(table+"."+conditionFieldName).value;
 ```
 There is an alternative method to get the value of the condition builder. ServiceNow provide a client side method `getFilter(filter_id)`. In our case we can access this as below.
 ```js
 var query = getFilter(table+"."+conditionFieldName);
 ```
 
+### Hiding the Table name field
+If you want to hide the table name field you can add `tableUI.hide();` to your `addLoadEvent()` function giving you this.
+```js
+var table = "your_table_name" ; // define the name of the table where your condition and table name fields are
+var tableNameFieldName = "your_table_name_field_name"; // define the name of the table name field
+var conditionFieldName = "your_condition_field_name"; // define the name of the condition field
+addLoadEvent(function(){	
+	//get the input for the table name field and set the value to table you want to reference, so that the condition builder will look at that table
+	var tableUI = document.getElementById(table+"."+tableNameFieldName);
+	tableUI.value = "the_name_of_the_table_to_reference";
+	tableUI.hide();
+ 
+ //get the input for the conditon builder and set the value to an encoded query string
+	var conditionUI = document.getElementById(table+"."+conditionFieldName);
+	conditionUI.value = "active=true";
+ }
+```
+
+## Slushbucket
+### What is the Slushbucket?
+The Slushbucket is the name of the user interface that we find when we want to select and process multiple elements from a longer list of elements. For example when adding users or roels to a group.
+![ServiceNow Role Slushbucket](https://support.servicenow.com/sys_attachment.do?sys_id=436bcfbcdb04b0d016d2a345ca961962)
+It is comprised of two `<select></select>` elements and the items on each side are `<option></option>` elements.
+
+### Adding a Slushbucket to a UI Page
+Again this can be done simply with another undocumented Jelly tag `<g:ui_slushbucket></g:ui_slushbucket>`.
+The tag
 
 
 ## Common issues
@@ -102,14 +129,18 @@ If you are trying to set the value of any of the elements created as part of thi
 ```js
 addLoadEvent(function(){	
   //run your code
-  });
-  ```
+});
+```
+
+### My users cannot see the condition builder
+The advice on a lot of the content I found was to use the Business Rule [sys_script] table condition builder. This is fine if your UI Page is only going to be available to system administrators and developers, however the ACLs on the sys_script table prevent most users from being able to see these fields. You need to either find an existing table that your users can see where there is a Condition and Table name field that your users can see and use those, or create new ones somewhere they can see them.
+In my case I was buildling functionality for itil users and so I used the cmdb_baseline.table and cmdb_baseline.condition fields as these are already available to itil users.
 
 ## Supporting links
 ### ServiceNow Docs
  - [Conditions Fields](https://docs.servicenow.com/bundle/tokyo-platform-administration/page/administer/field-administration/concept/condition-field-types.html)
  - [Jelly Tags](https://docs.servicenow.com/bundle/tokyo-application-development/page/script/general-scripting/reference/r_JellyTags.html)
- - [Extensions to Jelly Syntax](https://docs.servicenow.com/bundle/tokyo-application-development/page/script/general-scripting/reference/r_JellyTags.html](https://docs.servicenow.com/bundle/tokyo-application-development/page/script/general-scripting/concept/c_ExtensionsToJellySyntax.html))
+ - [Extensions to Jelly Syntax](https://docs.servicenow.com/bundle/tokyo-application-development/page/script/general-scripting/concept/c_ExtensionsToJellySyntax.html)
 
 ### Community Posts
 
