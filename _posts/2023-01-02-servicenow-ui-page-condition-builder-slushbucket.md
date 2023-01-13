@@ -21,11 +21,12 @@ Some forms also contain condition builders. For example:
 When the condition builder is present on a form it has been added like any other column on the table. The condition builder is dependent on there being another field available to define which table it will reference. This is defined on the Condition field's sys_dictionary record. In most cases, there will be a field of type Table name on the same table and the Condition field will be dependent on that. 
 
 When the condition builder has a value it is stored as an encoded query string, just like you would get from the condition builder on a list page. The value can be accessed using the usual client or server-side methods.
-{{"{% highlight javascript "}}%}
+```js
 g_form.getValue("condition_field") //in the client
 
 gr.getValue("condition_field") //on the server-side
-{{ "{% endhighlight "}}%}
+```
+
 ### Adding a condition builder to a UI Page
 Adding a condition builder to a UI Page is actually very simple, it is just very poorly documented.
 ServiceNow provide a Jelly tag `<g:ui_element></g:ui_element>` which is not mentioned in the Jelly Tags or Extensions to Jelly syntax docs.
@@ -119,7 +120,14 @@ It is comprised of two `<select></select>` elements and the items on each side a
 
 ### Adding a Slushbucket to a UI Page
 Again this can be done simply with another undocumented Jelly tag `<g:ui_slushbucket></g:ui_slushbucket>`.
-The tag
+The tag has an attribute of `name` which you can refer to it by in the UI Page Client Script `<g:ui_slushbucket name="sb"></g:ui_slushbucket>`. 
+Adding this element will render an empty slushbucket with no options on the left and only one option "--" on the right. In the following sections I will show how to make this work with the condition builder and some additional features we can add like displaying additional information about each slushbucket option when it is clicked.
+
+### Remove the "--" option from the right `<select>`
+### Set both `<select>` elements to be disabled while the options on the left are being updated
+### Add options to the left `<select>`
+### Show additional information about the selected `<option>`
+### Get the selected `<option>`s values
 
 
 ## Common issues
