@@ -21,7 +21,7 @@ Some forms also contain condition builders. For example:
 When the condition builder is present on a form it has been added like any other column on the table. The condition builder is dependent on there being another field available to define which table it will reference. This is defined on the Condition field's sys_dictionary record. In most cases, there will be a field of type Table name on the same table and the Condition field will be dependent on that. 
 
 When the condition builder has a value it is stored as an encoded query string, just like you would get from the condition builder on a list page. The value can be accessed using the usual client or server-side methods.
-```
+```js
 g_form.getValue("condition_field") //in the client
 
 gr.getValue("condition_field") //on the server-side
@@ -40,7 +40,7 @@ The field will have some, but not all of the same behaviour as if it were on the
  - ACLs are observed, so if a user cannot read or write the field on the form normally, do not expect them to see it on the UI page. However ACLs that use a script and evaluate the `current` object will error, as current will not be defined and so users who can usually read or write a field still may not be able to.
 
 Try adding a `<g:ui_element></g:ui_element>` tag to a UI Script for something other than a condition builder, just an example.
-```
+```xml
 <!-- if this doesn't work, double check the sys_id of the sys_dictionary record for your PDIs incident.category field -->
 <g:ui_element table="incident" field="category" id="20b7bee345910110a86630cf9552f3cb"></g:ui_element>
 ```
