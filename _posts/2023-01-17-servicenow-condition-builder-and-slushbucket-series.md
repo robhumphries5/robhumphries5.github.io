@@ -2,7 +2,7 @@
 This post is an introduction to a series of posts on how to create and use Condition Builders and Slushbuckets in ServiceNow UI Pages.
 
 The series will cover the following topics:
- - What is a Condition Builder?
+ - [What is a Condition Builder?](https://robhumphries5.github.io/2023/01/17/servicenow-what-is-a-condition-builder.html)
  - Adding a Condition Builder to a UI Page
  - Setting the initial value of the Table field and Condition Builder
  - Getting the values of the Table field and Condition Builder
