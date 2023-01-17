@@ -1,4 +1,4 @@
-# Adding a Condition Builder to a UI Page 
+# Adding a Condition Builder to a UI Page
 
 This is article in the [ServiceNow Condition Builder & Slushbucket series](https://robhumphries5.github.io/2023/01/17/servicenow-condition-builder-and-slushbucket-series.html)
 
