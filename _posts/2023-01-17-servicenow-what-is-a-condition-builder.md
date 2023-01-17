@@ -2,6 +2,7 @@
 This is article in the [ServiceNow Condition Builder & Slushbucket series](https://robhumphries5.github.io/2023/01/17/servicenow-condition-builder-and-slushbucket-series.html)
 
 The Condition Builder is the name given to the user interface that is present at the top of all list pages in ServiceNow, to filter the records in the list.
+
 ![ServiceNow Condition Builder](https://servicenow-be-prod.servicenow.com/bundle/tokyo-platform-user-interface/page/use/common-ui-elements/image/ExampleConditionActiveIsTrueAndCallerIsNotEmpty.png?_LANG=enus)
 
 Some forms also contain Condition Builders. For example:
