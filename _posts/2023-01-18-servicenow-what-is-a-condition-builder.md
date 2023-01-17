@@ -1,4 +1,4 @@
-# ServiceNow  - What is the Condition Builder?
+# ServiceNow  - What is the Condition Builder? 
 This is article in the [ServiceNow Condition Builder & Slushbucket series](https://robhumphries5.github.io/2023/01/17/servicenow-condition-builder-and-slushbucket-series.html)
 
 The Condition Builder is the name given to the user interface that is present at the top of all list pages in ServiceNow, to filter the records in the list.
