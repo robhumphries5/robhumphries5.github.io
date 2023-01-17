@@ -19,4 +19,3 @@ g_form.getValue("condition_field") //in the client
 
 gr.getValue("condition_field") //on the server-side
 ```
-The next article in the series is [Adding a Condition Builder to a UI Page]()
